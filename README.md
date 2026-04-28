@@ -131,36 +131,45 @@ Review this script, make sure it's not malicous or doing things you don't agree 
 
 ## Why this is needed 
 
-> **Adware and click fraud disguised as battery savers.** Around
-> 2018–2020 Google removed batches of "battery saver," "battery booster,"
-> and "phone cleaner" apps that were really running hidden ad clickers
-> in the background. Ironically, they drained the battery they claimed
-> to save. Some had millions of installs before removal.
->
-> **The DU Group ban (2020).** Google removed roughly 40+ apps from DU
-> Group — affiliated with Baidu — including DU Battery Saver, DU
-> Cleaner, and ES File Explorer, after researchers documented ad fraud
-> (faking clicks to launch ads in the background) and aggressive data
-> collection. DU Battery Saver had been a top-50 utility download for
-> years.
->
-> **Banking trojan delivery.** Malware families like Anubis and Joker
-> have been repeatedly distributed inside fake "battery saver" or
-> "battery optimizer" apps. The pattern: a small functional app passes
-> Play Store review, then fetches a malicious payload after install.
-> Once active, it overlays banking app login screens to harvest
-> credentials. ESET, Lookout, and Zimperium have published reports on
-> multiple campaigns of this exact shape.
->
-> **Spyware-grade data exfiltration.** Various "battery analyzer" type
-> apps have been caught reading contacts, SMS, call logs, location, and
-> installed-app lists, then phoning them home to ad networks or unknown
-> servers. The permissions they requested (contacts, SMS) had no
-> plausible relationship to battery monitoring, which is the giveaway.
->
-> **Why this battery category specifically?** Three reasons:
-> (1) "battery" is one of the most-searched utility terms, so it draws
-> clicks; (2) users grant broad permissions to anything labeled "system
-> utility"; (3) genuine battery insight on Android requires very few
-> permissions, so a real one looks suspiciously similar to a fake one
-> until you watch its behavior.
+Adware and click fraud disguised as utility apps. In April 2019,
+Google banned developer DO Global (formerly DU Group), removing 46
+of its apps from the Play Store after a BuzzFeed News investigation
+found they were committing click fraud — clicking ads in the
+background without users knowing.[1] DO Global's apps had over 600
+million combined installs;[2] ES File Explorer was the best-known
+name in the ban.[3]
+Cheetah Mobile ban (February 2020). Google removed roughly 45
+Cheetah Mobile apps from the Play Store as part of a broader
+~600-app sweep targeting "disruptive ads" and ad fraud.[4][5]
+Cheetah's portfolio included popular battery, cleaner, and security
+utilities.
+Banking trojan delivered via a fake battery saver. In January
+2019, Trend Micro researchers documented an app called
+BatterySaverMobi on the Play Store carrying the Anubis Android
+banking trojan.[6][7] It used the device's motion sensor to evade
+sandboxes and emulators (only activating when the device was
+actually being moved by a real user), then harvested banking
+credentials via a keylogger and screenshots.[7] The malicious
+payload was disguised as a system update.[6]
+Spyware-grade permission abuse. A long pattern across "battery,"
+"cleaner," and "booster" apps: requesting permissions (contacts,
+SMS, location) that have no plausible relationship to battery
+monitoring, then exfiltrating that data to ad networks or unknown
+servers.[8] The mismatch between stated function and requested
+permissions is the giveaway.
+Why this category specifically? Three reasons: (1) "battery" is
+one of the most-searched utility terms, so it draws clicks;
+(2) users grant broad permissions to anything labeled "system
+utility"; (3) genuine battery monitoring on Android needs almost no
+permissions, so a real one looks suspiciously similar to a fake one
+until you watch its behavior.
+
+References
+[1] Silverman, C. Popular Apps In Google's Play Store Are Abusing Permissions And Committing Ad Fraud. BuzzFeed News, April 23, 2019. https://www.buzzfeednews.com/article/craigsilverman/google-play-store-ad-fraud-du-group-baidu
+[2] Bradshaw, K. Google bans Play Store developer w/ over 600 million installs due to ad fraud scheme. 9to5Google, April 29, 2019. https://9to5google.com/2019/04/29/google-play-store-ban-do-global/
+[3] Ruddock, D. ES File Manager vanishes from Play Store, possibly part of DO Global scandal. Android Police, April 27, 2019. https://www.androidpolice.com/2019/04/27/es-file-manager-vanishes-from-play-store-possibly-part-of-do-global-scandal/
+[4] Carlon, K. Google has removed almost all Cheetah Mobile apps from the Play Store. Android Police, February 27, 2020. https://www.androidpolice.com/2020/02/27/cheetah-mobile-apps-disappeared-play-store/
+[5] Silverman, C. Google Has Banned Almost 600 Android Apps For Pushing "Disruptive" Ads. BuzzFeed News, February 20, 2020. https://www.buzzfeednews.com/article/craigsilverman/google-bans-android-apps-disruptive-ads
+[6] Khandelwal, S. New Android Malware Apps Use Motion Sensor to Evade Detection. The Hacker News, January 18, 2019. https://thehackernews.com/2019/01/android-malware-play-store.html
+[7] Waqas. Malicious apps deploy Anubis banking trojan using motion detection. HackRead, January 18, 2019. https://hackread.com/malicious-apps-anubis-banking-trojan-motion-detection/
+[8] Lookout Threat Intel. What You Need To Know About the Banking Trojan Anubis. Lookout. https://www.lookout.com/threat-intelligence/article/anubis-targets-hundreds-of-financial-appsLegacy ModelClaude is AI and can m
