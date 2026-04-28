@@ -124,3 +124,43 @@ When you're confident it works, you can remove the `do shell script "echo ..."` 
 - **State is in memory only.** If you quit and relaunch the app during a single discharge, you'll get a duplicate alert because the flags reset on launch.
 - **No nagging.** If you ignore the critical alert and keep using the laptop, the script won't remind you again until you plug in and unplug.
 - **One alert per threshold per cycle.** If you want repeated reminders while critically low, the script needs to be modified to use a timer instead of a flag.
+
+
+# SECURITY
+Review this script, make sure it's not malicous or doing things you don't agree with. 
+
+## Why this is needed 
+
+> **Adware and click fraud disguised as battery savers.** Around
+> 2018–2020 Google removed batches of "battery saver," "battery booster,"
+> and "phone cleaner" apps that were really running hidden ad clickers
+> in the background. Ironically, they drained the battery they claimed
+> to save. Some had millions of installs before removal.
+>
+> **The DU Group ban (2020).** Google removed roughly 40+ apps from DU
+> Group — affiliated with Baidu — including DU Battery Saver, DU
+> Cleaner, and ES File Explorer, after researchers documented ad fraud
+> (faking clicks to launch ads in the background) and aggressive data
+> collection. DU Battery Saver had been a top-50 utility download for
+> years.
+>
+> **Banking trojan delivery.** Malware families like Anubis and Joker
+> have been repeatedly distributed inside fake "battery saver" or
+> "battery optimizer" apps. The pattern: a small functional app passes
+> Play Store review, then fetches a malicious payload after install.
+> Once active, it overlays banking app login screens to harvest
+> credentials. ESET, Lookout, and Zimperium have published reports on
+> multiple campaigns of this exact shape.
+>
+> **Spyware-grade data exfiltration.** Various "battery analyzer" type
+> apps have been caught reading contacts, SMS, call logs, location, and
+> installed-app lists, then phoning them home to ad networks or unknown
+> servers. The permissions they requested (contacts, SMS) had no
+> plausible relationship to battery monitoring, which is the giveaway.
+>
+> **Why this battery category specifically?** Three reasons:
+> (1) "battery" is one of the most-searched utility terms, so it draws
+> clicks; (2) users grant broad permissions to anything labeled "system
+> utility"; (3) genuine battery insight on Android requires very few
+> permissions, so a real one looks suspiciously similar to a fake one
+> until you watch its behavior.
